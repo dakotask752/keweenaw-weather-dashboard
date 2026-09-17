@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Keweenaw Weather Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+<header>
+
+    <h1>Keweenaw Conditions Dashboard</h1>
+
+    <p>
+        Weather • Wind • Waves • Pressure • Moon
+    </p>
+
+</header>
+
+
+<main>
+
+
+    <!-- LOCATION -->
+
+    <section class="location-selector">
+
+        <label for="location">
+            Location:
+        </label>
+
+        <select id="location">
+
+            <option value="46.9536,-88.1657">
+                Houghton
+            </option>
+
+            <option value="47.0255,-88.5308">
+                Gratiot River
+            </option>
+
+            <option value="46.8500,-88.5000">
+                Tobacco River
+            </option>
+
+            <option value="46.8500,-89.3000">
+                Ontonagon
+            </option>
+
+            <option value="46.8200,-89.4500">
+                Firesteel River
+            </option>
+
+            <option value="46.8700,-88.5700">
+                Falls River
+            </option>
+
+        </select>
+
+
+        <button onclick="loadDashboard()">
+            Refresh
+        </button>
+
+        <span id="lastUpdated"></span>
+
+    </section>
+
+
+
+    <!-- CURRENT CONDITIONS -->
+
+    <section class="dashboard">
+
+
+        <div class="card">
+
+            <h2>🌡️ Weather</h2>
+
+            <div id="currentWeather">
+                Loading...
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>💨 Wind</h2>
+
+            <div id="wind">
+                Loading...
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>📉 Pressure</h2>
+
+            <div id="pressure">
+                Loading...
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>🌊 Waves</h2>
+
+            <div id="waves">
+                Loading...
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>🌙 Moon</h2>
+
+            <div id="moon">
+                Loading...
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>☀️ Sun</h2>
+
+            <div id="sun">
+                Loading...
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>📡 NOAA / NWS</h2>
+
+            <div id="noaa">
+                Loading...
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>⚠️ Alerts</h2>
+
+            <div id="alerts">
+                Loading...
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- WIND CHART -->
+
+    <section class="card chart-card">
+
+        <h2>
+            💨 Wind — Last 72 Hours + Forecast
+        </h2>
+
+        <canvas id="windChart"></canvas>
+
+    </section>
+
+
+
+    <!-- PRESSURE CHART -->
+
+    <section class="card chart-card">
+
+        <h2>
+            📉 Barometric Pressure — Last 72 Hours + Forecast
+        </h2>
+
+        <canvas id="pressureChart"></canvas>
+
+    </section>
+
+
+
+    <!-- WAVE CHART -->
+
+    <section class="card chart-card">
+
+        <h2>
+            🌊 Wave Forecast
+        </h2>
+
+        <canvas id="waveChart"></canvas>
+
+    </section>
+
+
+
+    <!-- HOURLY FORECAST -->
+
+    <section class="card large">
+
+        <h2>
+            🕐 Next 24 Hours
+        </h2>
+
+        <div id="forecast">
+            Loading...
+        </div>
+
+    </section>
+
+
+
+    <!-- DATA SOURCES -->
+
+    <section class="card">
+
+        <h2>
+            Data Sources
+        </h2>
+
+        <p>
+            Weather and historical data:
+            Open-Meteo
+        </p>
+
+        <p>
+            Government observations, forecasts and alerts:
+            NOAA / National Weather Service
+        </p>
+
+        <p>
+            Sun and moon calculations:
+            U.S. Naval Observatory
+        </p>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

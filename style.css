@@ -1,0 +1,490 @@
+:root{
+  --blue:#0b63ce;
+  --blue2:#084a9b;
+  --soft:#eaf3ff;
+  --ink:#17212b;
+  --muted:#687684;
+  --line:#d9e1e8;
+  --bg:#f3f6f9;
+  --good:#16734a;
+  --bad:#b42318;
+  --shadow:0 2px 8px rgba(15,23,42,.07);
+  --r:9px
+}
+
+*{
+  box-sizing:border-box
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:14px Arial,Helvetica,sans-serif;
+  line-height:1.38
+}
+
+button,
+input,
+select{
+  font:inherit
+}
+
+a{
+  color:#075fc0
+}
+
+.v3-dashboard-host{
+  max-width:1500px;
+  margin:0 auto
+}
+
+/* ONE BLUE BANNER */
+
+.v1-banner{
+  background:linear-gradient(
+    135deg,
+    var(--blue2),
+    var(--blue)
+  );
+  color:#fff;
+  border-radius:8px;
+  padding:11px 15px;
+  margin-bottom:8px;
+  box-shadow:var(--shadow)
+}
+
+.v1-title{
+  font-size:21px;
+  font-weight:800
+}
+
+.v1-subtitle{
+  font-size:12px;
+  opacity:.92
+}
+
+/* GENERAL CARDS */
+
+.k-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:9px;
+  margin-bottom:8px;
+  box-shadow:var(--shadow)
+}
+
+.k-card h2{
+  font-size:15px;
+  margin:0 0 7px
+}
+
+.k-card h3{
+  font-size:13px;
+  margin:0 0 5px
+}
+
+.k-card p{
+  margin:3px 0
+}
+
+.small{
+  font-size:11px;
+  color:var(--muted)
+}
+
+.good{
+  color:var(--good)
+}
+
+/* ONE DROPDOWN */
+
+.k-toolbar{
+  display:flex;
+  align-items:center;
+  gap:8px
+}
+
+.k-toolbar select{
+  min-width:220px;
+  padding:5px 8px;
+  border:1px solid #cbd5df;
+  border-radius:6px;
+  background:#fff;
+  cursor:pointer
+}
+
+.k-toolbar #lastUpdated{
+  margin-left:auto;
+  color:var(--muted);
+  font-size:11px
+}
+
+/* SUMMARY */
+
+.summary-grid{
+  display:grid;
+  grid-template-columns:
+    minmax(210px,1.5fr)
+    repeat(4,minmax(115px,1fr));
+  gap:7px;
+  margin-bottom:8px
+}
+
+.score-card,
+.stat-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:8px;
+  box-shadow:var(--shadow)
+}
+
+.score-card{
+  background:var(--soft);
+  border-color:#c6dcf5
+}
+
+.score-card .small,
+.stat-card .small{
+  font-weight:700
+}
+
+.score-card .big{
+  font-size:29px;
+  font-weight:900;
+  line-height:1;
+  margin:2px 0
+}
+
+.score-card span,
+.stat-card span{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:2px
+}
+
+.stat-big{
+  font-size:17px;
+  font-weight:800;
+  margin:2px 0
+}
+
+/* CURRENT DATA */
+
+.data-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+  gap:7px;
+  margin-bottom:8px
+}
+
+.data-grid .k-card{
+  margin:0;
+  box-shadow:none;
+  min-width:0
+}
+
+.metric{
+  font-size:20px;
+  font-weight:900;
+  line-height:1.1
+}
+
+/* HISTORICAL AVERAGES */
+
+.avg-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+  gap:7px
+}
+
+.avg-box{
+  border:1px solid var(--line);
+  border-radius:7px;
+  background:#fff;
+  padding:7px;
+  min-width:0
+}
+
+.avg-box>div{
+  margin-top:2px;
+  font-size:12px
+}
+
+/* HISTORICAL CHARTS */
+
+.chart-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+  gap:7px
+}
+
+.chart-box{
+  border:1px solid var(--line);
+  border-radius:7px;
+  padding:6px;
+  background:#fff;
+  overflow:hidden
+}
+
+.chart-box h3{
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+
+/* Extra height for vertical timestamp labels */
+
+.chart-box canvas{
+  display:block;
+  width:100%;
+  height:300px
+}
+
+/* FORECAST */
+
+.table-box{
+  border:1px solid var(--line);
+  border-radius:7px;
+  overflow:auto;
+  margin-top:7px
+}
+
+.table-box h3{
+  padding:7px;
+  margin:0;
+  background:#f5f7fa
+}
+
+.table-box table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:11px
+}
+
+.table-box th,
+.table-box td{
+  padding:5px 7px;
+  border-bottom:1px solid #e6ebef;
+  text-align:left;
+  white-space:nowrap
+}
+
+.table-box th{
+  background:#f8fafc;
+  position:sticky;
+  top:0
+}
+
+/* FISHING WINDOWS */
+
+.window{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+  align-items:center;
+  padding:7px;
+  border-top:1px solid var(--line)
+}
+
+.window:first-child{
+  border-top:0
+}
+
+.window span{
+  display:block;
+  color:var(--muted);
+  font-size:11px
+}
+
+.window strong{
+  font-size:19px
+}
+
+/* MAP */
+
+.map-frame{
+  display:block;
+  width:100%;
+  height:520px;
+  border:1px solid var(--line);
+  border-radius:8px
+}
+
+/* ALERTS */
+
+.alert{
+  border:1px solid #f0c7c3;
+  border-left:3px solid var(--bad);
+  background:#fff7f6;
+  border-radius:6px;
+  padding:6px;
+  margin:4px 0;
+  font-size:12px
+}
+
+/* BEST SPOT RANKINGS */
+
+#ranking details{
+  width:100%
+}
+
+#ranking summary{
+  cursor:pointer;
+  font-weight:800;
+  font-size:15px;
+  padding:2px 0;
+  user-select:none
+}
+
+#rankRows{
+  margin-top:7px;
+  border:1px solid var(--line);
+  border-radius:7px;
+  overflow:hidden
+}
+
+.rank-row{
+  display:grid;
+  grid-template-columns:
+    34px
+    minmax(180px,1.2fr)
+    minmax(240px,2fr)
+    65px;
+  gap:8px;
+  align-items:center;
+  padding:7px 8px;
+  border-top:1px solid var(--line);
+  font-size:12px
+}
+
+.rank-row:first-child{
+  border-top:0
+}
+
+.rank-selected{
+  background:var(--soft)
+}
+
+.rank-position{
+  font-weight:800;
+  text-align:center;
+  color:var(--muted)
+}
+
+.rank-name{
+  min-width:0
+}
+
+.rank-breakdown{
+  color:var(--muted);
+  white-space:nowrap
+}
+
+.rank-score{
+  font-size:17px;
+  font-weight:900;
+  text-align:right
+}
+
+.rank-current{
+  display:inline-block;
+  margin-left:5px;
+  padding:1px 4px;
+  border-radius:4px;
+  background:#d9ecff;
+  color:#075fc0;
+  font-size:9px;
+  font-weight:800;
+  vertical-align:middle
+}
+
+/* TABLET */
+
+@media(max-width:1000px){
+
+  .summary-grid{
+    grid-template-columns:
+      repeat(2,1fr)
+  }
+
+  .score-card{
+    grid-column:1/-1
+  }
+
+  .data-grid,
+  .avg-grid{
+    grid-template-columns:
+      repeat(2,1fr)
+  }
+
+  .rank-row{
+    grid-template-columns:
+      34px
+      minmax(150px,1fr)
+      minmax(180px,1.5fr)
+      55px
+  }
+}
+
+/* PHONE */
+
+@media(max-width:700px){
+
+  .data-grid,
+  .avg-grid,
+  .chart-grid{
+    grid-template-columns:1fr
+  }
+
+  .summary-grid{
+    grid-template-columns:1fr
+  }
+
+  .score-card{
+    grid-column:auto
+  }
+
+  .k-toolbar{
+    flex-wrap:wrap
+  }
+
+  .k-toolbar #lastUpdated{
+    margin-left:0
+  }
+
+  .map-frame{
+    height:430px
+  }
+
+  .chart-box canvas{
+    height:275px
+  }
+
+  .rank-row{
+    grid-template-columns:
+      30px
+      1fr
+      55px
+  }
+
+  .rank-breakdown{
+    display:none
+  }
+}
+
+/* SMALL PHONE */
+
+@media(max-width:450px){
+
+  .k-toolbar select{
+    min-width:0;
+    width:100%
+  }
+}
